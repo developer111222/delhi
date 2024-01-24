@@ -1,0 +1,44 @@
+.footer{
+  background: #222222;
+}
+.foot-col {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 30px 10px;
+  flex-basis: 25%;
+ 
+}
+.foot {
+  width: 25%;
+}
+.social-div{
+  width: 150px;
+}
+
+.social-link-row svg{
+margin: 0 5px;
+}
+
+.footer p,h4{
+  color: white;
+}
+.footer .foot-col p,
+.footer .foot-list  a {
+  font-size: 14px;
+}
+
+.footer .foot-col a{
+  color: white;
+ 
+}
+.footer .foot-list{
+  padding:0px;
+}
+
+@media only screen and (max-width: 767px) {
+  .foot-col {
+    flex-direction: column;
+  }
+}
