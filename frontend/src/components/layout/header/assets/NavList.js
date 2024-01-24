@@ -1,13 +1,20 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink, useParams } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
 import { getAllCategories } from "../../../../actions/CategoreAction";
 import { FaWineBottle } from "react-icons/fa";
 import { GiBeerBottle } from "react-icons/gi";
+import { MdOutlineArrowDropDown } from "react-icons/md";
 
 export const NavList = ({ toggleContentRemove }) => {
   const data = useParams();
+
+  const [visible, setVisible] = useState(null);
+
+  const handleClick = (i) => {
+    setVisible((prevVisible) => (prevVisible === i ? null : i));
+  };
 
   const dispatch = useDispatch();
 
@@ -23,6 +30,7 @@ export const NavList = ({ toggleContentRemove }) => {
   const icons = [<FaWineBottle />, <GiBeerBottle />];
   return (
     <>
+    {!catLoading?(
       <div className="nav-col nav-li-list">
         <ul className="nav-list parent-navlist">
           <li>
@@ -35,10 +43,22 @@ export const NavList = ({ toggleContentRemove }) => {
               .filter((item) => item.categorystatus === true)
               .map((item, i) => (
                 <li key={i}>
-                  <NavLink to={`/product-category/${item.slug}`}>
-                    {item.name}
-                  </NavLink>
-                  <ul className="child-navlist">
+                  <div className="mob-list">
+                    <NavLink to={`/product-category/${item.slug}`}>
+                      {item.name}
+                    </NavLink>
+                    <MdOutlineArrowDropDown
+                    
+                      onClick={() => handleClick(i)}
+                    />
+                  </div>
+                  <ul
+                    className={
+                      visible === i
+                        ? "child-navlist list-active"
+                        : "child-navlist "
+                    }
+                  >
                     {item.childs
                       .filter((item) => item.subcategorystatus === true)
                       .map((subItem, i) => (
@@ -62,6 +82,7 @@ export const NavList = ({ toggleContentRemove }) => {
           </li>
         </ul>
       </div>
+      ):null}
     </>
   );
 };

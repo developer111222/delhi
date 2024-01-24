@@ -98,12 +98,16 @@ const LoginSingup = () => {
 
   const singupSubmit = (e) => {
     e.preventDefault();
-    const { name, email, password } = singupValue;
+    
+    const { name, email, password,cpassword } = singupValue;
     const userDetails = {
       name,
       email,
       password,
     };
+    if(password!==cpassword){
+      return alert.error("pasword and confirm password not match")
+    }
 
     // Convert the object to a JSON string and store it in localStorage
     localStorage.setItem("userDetails", JSON.stringify(userDetails));

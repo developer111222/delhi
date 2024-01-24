@@ -14,6 +14,8 @@ export const Footer = () => {
         <FootRight />
         <SocilaMedia/>
       </div>
+      
+      <p style={{textAlign:"center"}}>Copyright 2023 Madarchod.All Right Reserved Website Designed And managed By<a href="https://karnalwebtech.com" target="blank" style={{color:"white"}}> Karnalwebtech.com</a></p>
     </footer>
   );
 };

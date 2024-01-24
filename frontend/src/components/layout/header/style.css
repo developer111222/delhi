@@ -394,3 +394,52 @@ header {
   background: white;
   width: 200px;
 }
+
+.mob-list svg {
+  display: none;
+  font-size: 30px;
+}
+
+/* // login/sighup text */
+
+@media screen and (max-width: 768px) {
+  .login-des {
+    display: none;
+  }
+  .mob-list svg {
+    display: block;
+    font-size: 30px;
+  }
+  .child-navlist {
+    position: relative;
+    padding: 5px;
+  }
+  .nav-area,
+  .nav-list {
+    align-items: start;
+  }
+  .mob-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .mob-list a,
+  .mob-list svg {
+    width: 50%;
+  }
+  .mob-nav ul {
+    margin-top: 20px;
+  }
+  .parent-navlist li {
+    width: 100%;
+  }
+  .parent-navlist li:hover .child-navlist {
+    display: none;
+  }
+  .child-navlist {
+    display: none;
+  }
+  .list-active {
+    display: block !important;
+  }
+}

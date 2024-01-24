@@ -25,7 +25,7 @@ export const LoginLink = ({ event, isContentVisible }) => {
                   <span>
                     <FaUserLarge />
                   </span>
-                  <span>Login/SingUp</span>
+                  <span className="login-des">Login/SingUp</span>
                 </NavLink>
               </div>
             ) : (

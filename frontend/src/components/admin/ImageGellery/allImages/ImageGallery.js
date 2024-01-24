@@ -3,6 +3,7 @@ import Gallery from "react-photo-gallery";
 import SelectedImage from "./SelectedImage";
 import { useSelector, useDispatch } from "react-redux";
 import Pagination from "react-js-pagination";
+import { useAlert } from "react-alert";
 import {
   clearErrors,
   getAllImages,
@@ -12,6 +13,7 @@ import Loader from "../../../layout/loader/Loader";
 
 const ImageGallery = () => {
   const dispatch = useDispatch();
+  const alert=useAlert();
   const { loading, images, resultPerPage, imageCount, error } = useSelector(
     (state) => state.images
   );

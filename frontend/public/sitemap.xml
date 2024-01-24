@@ -30,8 +30,14 @@
       </url>
     
       <url>
-        <loc>undefined/shop/dolls/demo-demo-demo-demo</loc>
+        <loc>undefined/shop/dolls/democvccv-democvccv-democvccv</loc>
         <lastmod>2024-01-20T08:14:00.033Z</lastmod>
+        <priority>0.5</priority>
+      </url>
+    
+      <url>
+        <loc>undefined/shop/dolls/demo76</loc>
+        <lastmod>2024-01-24T11:36:01.874Z</lastmod>
         <priority>0.5</priority>
       </url>
     </urlset>
