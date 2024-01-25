@@ -9,6 +9,7 @@ import BlogCategory from "../allblog/BlogCategory";
 import Pagination from "react-js-pagination";
 import { useParams } from "react-router-dom";
 import { useAlert } from "react-alert";
+import MetaData from "../../layout/metaData/MetaData";
 
 const CategoryPage = () => {
   const dispatch = useDispatch();
@@ -35,6 +36,11 @@ const CategoryPage = () => {
   }, [dispatch, alert, error, currentPage,catId]);
   return (
     <>
+     {/* <MetaData
+        title={blog && blog.seo && blog.seo && blog.seo.metatitle}
+        content={blog && blog.seo && blog.seo && blog.seo.metadec}
+        keywords={blog && blog.seo && blog.seo && blog.seo.keyword}
+        /> */}
       <div className="cont-area-h">
         <div className="cont-row">
           <div className="blog-left">

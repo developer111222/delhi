@@ -65,6 +65,7 @@ import {
   CreateBlogCategoryReducer,
   DeleteCategoryReducer,
   UpdateBlogCategoryReducer,
+  singleBlogCategoryReducer,
 } from "./reducers/BlogCategoryReducer";
 import { seoReducer } from "./reducers/SeoReducer";
 
@@ -121,6 +122,7 @@ const reducer = combineReducers({
   adminsingleSubCategory: SingleSubCategoryReducer,
   adminUpdateSubCategory: UpdateSubCategoryReducer,
   adminupdateproductstatus:updateProductStatus,
+  singleblogcategory:singleBlogCategoryReducer,
 });
 
 let inialState = {

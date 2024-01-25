@@ -78,6 +78,7 @@ function AllPost() {
           <>
             <NavLink
               to={`/admin/post/update/${params.getValue(params.id, "id")}`}
+              
             >
               <FaUpRightFromSquare />
             </NavLink>

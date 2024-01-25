@@ -6,6 +6,8 @@ import {
   CreatePostCategory,
   ClearError,
 } from "../../../../../actions/BlogCategoryAction";
+
+
 function PostCategoryForm({inputValue,handelInputValue,submitHandler}) {
 
 
@@ -50,6 +52,8 @@ function PostCategoryForm({inputValue,handelInputValue,submitHandler}) {
               onChange={handelInputValue}
             />
           </div>
+      
+                       
           <div>
             <Button type="submit">Submit</Button>
           </div>

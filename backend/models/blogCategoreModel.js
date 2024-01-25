@@ -22,6 +22,10 @@ const blogCategoreSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
+  seo: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref:'SEO',
+  },
   user: {
     type: Number,
     ref: "User",

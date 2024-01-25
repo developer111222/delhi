@@ -2,10 +2,16 @@ import React from "react";
 import "./asset/Contact.css";
 import ContactText from "./asset/ContactText";
 import ContactForm from "./asset/ContactForm";
+import MetaData from "../layout/metaData/MetaData";
 
 const ContactUs = () => {
   return (
     <>
+       <MetaData
+        title={"Contact us"}
+        content={"Contact us"}
+        keywords={"Contact us"}
+      />
       <section>
         <div className="product-cont ">
           <div className="contact-row-gap">

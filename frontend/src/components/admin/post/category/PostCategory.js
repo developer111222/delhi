@@ -18,6 +18,7 @@ import {
   CREATE_CATEGORY_RESET,
   DELETE_CATEGORY_RESET,
 } from "../../../../constants/BlogCategoryConstant";
+import CreateSeo from "../../seo/create/CreateSeo";
 
 function PostCategory() {
   const dispatch = useDispatch();
@@ -43,18 +44,63 @@ function PostCategory() {
     description: "",
   });
 
+  const [seoInputValue, setSeoInputValue] = useState({
+    seotitle: "",
+    keyword: "",
+    metadec: "",
+    metalink: "",
+  });
+
+  const seoHandler = (e) => {
+    const { name, value } = e.target;
+
+    setSeoInputValue({ ...seoInputValue, [name]: value });
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    if (!seoInputValue) {
+      return alert.error("seoInputValue is undefined or null");
+    }
+    const { name,
+    slug,
+    title,
+    description}=inputValue
+    const { seotitle, keyword, metadec, metalink } = seoInputValue;
+    if (
+      // selectedCategoryId.trim() === "" ||
+      title.trim() === "" ||
+      description.trim() === "" ||
+      slug.trim() === "" ||
+      seotitle.trim() === "" ||
+      keyword.trim() === "" ||
+      metadec.trim() === ""  
+      // metalink.trim() === ""
+    ) {
+      return alert.error("Please fill out all required fields.");
+    }
+
+    dispatch(
+      CreatePostCategory(
+        // selectedCategoryId,
+        name,
+        title,
+        description,
+        slug,
+        seotitle,
+        keyword,
+        metadec,
+        // metalink
+      )
+    );
+  };
   const handelInputValue = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
     setInputValue({ ...inputValue, [name]: value });
   };
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-
-    const { name, slug, title, description } = inputValue;
-    dispatch(CreatePostCategory(name, slug, title, description));
-  };
 
   useEffect(() => {
     if (error) {
@@ -116,7 +162,7 @@ function PostCategory() {
         return (
           <>
             <NavLink
-              to={`/admin/post/update/${params.getValue(params.id, "id")}`}
+              to={`/admin/post/update-category/${params.getValue(params.id, "id")}`}
             >
               <FaUpRightFromSquare />
             </NavLink>
@@ -167,6 +213,13 @@ function PostCategory() {
                         submitHandler={submitHandler}
                       />
                     </div>
+                 <div>
+                 <CreateSeo
+                      seoInputValue={seoInputValue}
+                      seoHandler={seoHandler}
+                      submitHandler={submitHandler}
+                    />
+                 </div>
                     <div className="categore-row">
                       <div className="categore-coll">
                         {loading ? (

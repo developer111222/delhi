@@ -60,6 +60,7 @@ import AllSeo from "./components/admin/seo/allseo/AllSeo";
 import PostCategory from "./components/admin/post/category/PostCategory";
 import UpdateSubCategory from "./components/admin/category/updateCtegory/UpdateSubCategory";
 import CategoryPage from "./components/blog/categorypage/CategoryPage";
+import UpdatePostCategory from "./components/admin/post/category/update/UpdatePostCategory";
 
 function App() {
   const { loading } = useSelector((state) => state.user);
@@ -196,6 +197,12 @@ function App() {
                   path="/admin/post/post-category"
                   element={
                     <ProtectedRoute isAdmin={true} Component={PostCategory} />
+                  }
+                />
+                  <Route
+                  path="/admin/post/update-category/:id"
+                  element={
+                    <ProtectedRoute isAdmin={true} Component={UpdatePostCategory} />
                   }
                 />
 

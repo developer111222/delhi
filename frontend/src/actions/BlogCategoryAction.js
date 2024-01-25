@@ -11,8 +11,14 @@ import {
   DELETE_CATEGORY_REQUEST,
   DELETE_CATEGORY_FAILED,
   DELETE_CATEGORY_RESET,
+  BLOG_SINGLE_CATEGORY_REQUEST,
+  BLOG_SINGLE_CATEGORY_SUCCESS,
+  BLOG_SINGLE_CATEGORY_FAILED,
 } from "../constants/BlogCategoryConstant";
-import { UPDATE_BLOG_POST_FAILED, UPDATE_BLOG_POST_SUCCESS } from "../constants/BlogPostConstants";
+import {
+  UPDATE_BLOG_POST_FAILED,
+  UPDATE_BLOG_POST_SUCCESS,
+} from "../constants/BlogPostConstants";
 
 export const GetBlogCategory = () => async (dispatch) => {
   try {
@@ -33,19 +39,49 @@ export const GetBlogCategory = () => async (dispatch) => {
   }
 };
 
+export const GetBlogSingleCategory = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: BLOG_SINGLE_CATEGORY_REQUEST });
+    const { data } = await axios.get(`/api/v1/blog/single-categore/${id}`);
+console.log(data)
+    dispatch({
+      type: BLOG_SINGLE_CATEGORY_SUCCESS,
+      payload: data.Category,
+    });
+  } catch (error) {
+    dispatch({
+      type: BLOG_SINGLE_CATEGORY_FAILED,
+      payload: error.response.data.message,
+    });
+  }
+};
+
 // create category
 
 export const CreatePostCategory =
-  (name, slug, title, description) => async (dispatch) => {
+  (
+    name,
+    title,
+    description,
+    slug,
+    seotitle,
+    keyword,
+    metadec
+    // metalink
+  ) =>
+  async (dispatch) => {
     try {
       dispatch({ type: CREATE_CATEGORY_REQUEST });
 
       const formData = new FormData();
-
       formData.append("name", name);
       formData.append("slug", slug);
       formData.append("title", title);
       formData.append("description", description);
+      formData.append("seotitle", seotitle);
+      formData.append("keyword", keyword);
+      formData.append("metadec", metadec);
+      // formData.append("metalink", metalink);
 
       const config = {
         headers: {
@@ -74,7 +110,7 @@ export const DeletePostCategory = (id) => async (dispatch) => {
   try {
     dispatch({ type: DELETE_CATEGORY_REQUEST });
     const { data } = await axios.delete(`/api/v1/blog/update/categore/${id}`);
-console.log(data)
+    console.log(data);
     dispatch({ type: DELETE_CATEGORY_SUCCESS, payload: data });
   } catch (error) {
     dispatch({
@@ -86,18 +122,40 @@ console.log(data)
 
 //UPDATE BLOG CATEGORY
 
-export const UpdateBlogCategory=(id)=>  async(dispatch)=>{
-  try{
-    dispatch({type:DELETE_CATEGORY_REQUEST})
-    const {data}=await axios.put(``)
-    dispatch({type:UPDATE_BLOG_POST_SUCCESS,
-    payload:data})
-  }catch(error){
-    dispatch({type:UPDATE_BLOG_POST_FAILED,
-    payload:error.response.data.message})
-  }
-}
+export const UpdateBlogCategory =
+  (id,name, slug, title, description, seotitle, keyword, metadec) => async (dispatch) => {
+   
+    try {  
+      dispatch({ type: DELETE_CATEGORY_REQUEST });
 
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("slug", slug);
+      formData.append("title", title);
+      formData.append("description", description);
+      formData.append("seotitle", seotitle);
+      formData.append("keyword", keyword);
+      formData.append("metadec", metadec);
+
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+
+      const { data } = await axios.put(
+        `/api/v1/blog/update/categore/${id}`,
+        formData,
+        config
+      );
+      dispatch({ type: UPDATE_BLOG_POST_SUCCESS, payload: data });
+    } catch (error) {
+      dispatch({
+        type: UPDATE_BLOG_POST_FAILED,
+        payload: error.response.data.message,
+      });
+    }
+  };
 
 export const ClearError = () => async (dispatch) => {
   dispatch({ type: CATEGORY_CLEAR_ERROR });

@@ -5,6 +5,7 @@ import { singleBlogPost, ClearError } from "../../../actions/BlogPostAction";
 import { useParams } from "react-router-dom";
 import BlogCategory from "../allblog/BlogCategory";
 import Loader from "../../layout/loader/Loader";
+import MetaData from "../../layout/metaData/MetaData";
 
 const SingleBlog = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,11 @@ const SingleBlog = () => {
 
   return (
     <>
+        <MetaData
+        title={blog && blog.seoid && blog.seoid && blog.seoid.metatitle}
+        content={blog && blog.seoid && blog.seoid && blog.seoid.metadec}
+        keywords={blog && blog.seoid && blog.seoid && blog.seoid.keyword}
+        />
       <div className="cont-area-h">
         <div className="cont-row">
           <div className="blog-left">

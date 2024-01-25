@@ -16,6 +16,9 @@ import {
   UPDATE_CATEGORY_SUCCESS,
   UPDATE_CATEGORY_FAILED,
   UPDATE_CATEGORY_RESET,
+  BLOG_SINGLE_CATEGORY_REQUEST,
+  BLOG_SINGLE_CATEGORY_SUCCESS,
+  BLOG_SINGLE_CATEGORY_FAILED,
 } from "../constants/BlogCategoryConstant";
 import { UPDATE_IMAGE_SUCCESS } from "../constants/imageGelleryCartConstants";
 
@@ -148,6 +151,37 @@ export const UpdateBlogCategoryReducer = (state = {}, action) => {
         loading: false,
         isUpdate: null,
       };
+    case CATEGORY_CLEAR_ERROR:
+      return {
+        ...state,
+        loading: false,
+        error: null,
+      };
+    default:
+      return state;
+  }
+};
+
+export const singleBlogCategoryReducer = (state = {}, action) => {
+  switch (action.type) {
+    case BLOG_SINGLE_CATEGORY_REQUEST:
+      return {
+        ...state,
+        loading: true,
+      };
+    case BLOG_SINGLE_CATEGORY_SUCCESS:
+      return {
+        ...state,
+        loading: false,
+        blogcat: action.payload,
+      };
+    case BLOG_SINGLE_CATEGORY_FAILED:
+      return {
+        ...state,
+        loading: false,
+        error: action.payload,
+      };
+
     case CATEGORY_CLEAR_ERROR:
       return {
         ...state,

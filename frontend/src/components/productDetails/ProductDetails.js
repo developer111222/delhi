@@ -23,6 +23,7 @@ import AddToCartBtn from "./assets/AddToCartBtn";
 import AddReview from "./assets/AddReview";
 import SinglePageArticle from "./assets/SinglePageArticle";
 import ImageSlider from "./assets/ImageSlider";
+import MetaData from "../layout/metaData/MetaData";
 
 const ProductDetails = () => {
   const { id } = useParams();
@@ -127,8 +128,13 @@ const ProductDetails = () => {
     <>
       {loding ? (
         <Loader />
-      ) : (
-        <>
+        ) : (
+          <>
+          <MetaData
+        title={product && product.seoid && product.seoid && product.seoid.metatitle}
+        content={product && product.seoid && product.seoid && product.seoid.metadec}
+        keywords={product && product.seoid && product.seoid && product.seoid.keyword}
+        />
           <section className="section-cont prod-details-page">
             <div className="product-cont">
               <div className="product-single">

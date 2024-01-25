@@ -44,6 +44,11 @@ const seoSchema = new mongoose.Schema({
     ref: "Categore",
     // require: true,
   },
+  postcategoryid: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "blogCategore",
+    // require: true,
+  },
 });
 
 module.exports = mongoose.model("SEO", seoSchema);
