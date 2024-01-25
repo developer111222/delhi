@@ -46,3 +46,9 @@
   padding: 40px 10px;
   height: 100px;
 }
+.search-star .MuiRating-sizeLarge {
+  font-size: 15px;
+}
+.search-star p{
+  font-size: 14px;
+}
