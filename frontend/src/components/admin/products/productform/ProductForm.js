@@ -124,9 +124,9 @@ const ProductForm = () => {
       dispatch(ClearError());
     }
     if (success) {
-      dispatch({ type: NEW_PRODUCT_RESET });
       alert.success("product created");
       Navigate("/admin/all-products");
+      dispatch({ type: NEW_PRODUCT_RESET });
     }
     if (name) {
       setSeoInputValue((prev) => ({ ...prev, seotitle: name }));

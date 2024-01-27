@@ -67,6 +67,7 @@ import {
   UpdateBlogCategoryReducer,
   singleBlogCategoryReducer,
 } from "./reducers/BlogCategoryReducer";
+
 import { seoReducer } from "./reducers/SeoReducer";
 
 const reducer = combineReducers({

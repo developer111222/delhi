@@ -39,7 +39,7 @@ const dispatch = useDispatch();
                 <div className="all-products-cont">
                   <div className="all-products-content-area">
                     <div className="all-products-title">
-                      <h1>Create List</h1>
+                      <h1>Add Products</h1>
                     </div>
 
                     <div className="create-page-contaionr">

@@ -43,7 +43,7 @@ export const GetBlogSingleCategory = (id) => async (dispatch) => {
   try {
     dispatch({ type: BLOG_SINGLE_CATEGORY_REQUEST });
     const { data } = await axios.get(`/api/v1/blog/single-categore/${id}`);
-console.log(data)
+
     dispatch({
       type: BLOG_SINGLE_CATEGORY_SUCCESS,
       payload: data.Category,
@@ -148,7 +148,8 @@ export const UpdateBlogCategory =
         formData,
         config
       );
-      dispatch({ type: UPDATE_BLOG_POST_SUCCESS, payload: data });
+      dispatch({ type: UPDATE_BLOG_POST_SUCCESS, payload: data.updatedCategory
+      });
     } catch (error) {
       dispatch({
         type: UPDATE_BLOG_POST_FAILED,

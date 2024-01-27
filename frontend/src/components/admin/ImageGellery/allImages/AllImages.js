@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import {
-  getAllImages,
-} from "../../../../actions/imageGelleryAction";
+import { getAllImages } from "../../../../actions/imageGelleryAction";
 import MetaData from "../../../layout/metaData/MetaData";
 import { Aside } from "../../aside/Aside";
 import "./allImage.css";
@@ -40,14 +38,20 @@ const AllImages = () => {
                     <div className="admin-img-title">
                       <div className="gallery-header">
                         <div className="page-title-action">
-                          <NavLink to={"/admin/upload/media-new"}>
-                            Add New Media File
-                          </NavLink>
+                          <div className="all-post-heading">
+                            <h1>
+                              Image Gallery
+                              <span>
+                                <NavLink to={"/admin/upload/media-new"}>
+                                  Add New Media File
+                                </NavLink>
+                              </span>
+                            </h1>
+                          </div>
                         </div>
-                        <h1>Image Gellery</h1>
                       </div>
                       {/* <p>No of media {images && images.length}</p> */}
-
+<br></br>
                       <div className="gallery-containor">
                         <ImageGallery />
                       </div>

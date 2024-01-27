@@ -25,7 +25,7 @@ export const ProductSidebar = ({ selectedImage }) => {
       dispatch(clearErrors());
     }
   }, [error, alert, dispatch]);
-console.log(selectedImage)
+
   return (
     <>
       {images

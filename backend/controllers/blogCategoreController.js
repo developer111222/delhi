@@ -129,6 +129,7 @@ exports.updateBlogCategore = catchAsyncError(async (req, res, next) => {
     const { id } = req.params;
     const { name, slug, title, description, seotitle, keyword, metadec } =
       req.body;
+    
     let metaLink = slug.split(" ").join("-").toLowerCase();
     const user = req.user._id;
 

@@ -15,7 +15,7 @@ router
 
 router
   .route("/blog/update/categore/:id")
-  .post(isAuthenticatedUser, authorizeRols("admin"), updateBlogCategore)
+  .put(isAuthenticatedUser, authorizeRols("admin"), updateBlogCategore)
   .delete(isAuthenticatedUser, authorizeRols("admin"), deleteBlogCategore);
 router.route("/blog/all-categore").get(getAllBlogCategores);
 router.route("/blog/single-categore/:id").get(getSingleBlogCategores);

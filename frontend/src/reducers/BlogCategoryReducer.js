@@ -20,6 +20,7 @@ import {
   BLOG_SINGLE_CATEGORY_SUCCESS,
   BLOG_SINGLE_CATEGORY_FAILED,
 } from "../constants/BlogCategoryConstant";
+import { UPDATE_BLOG_POST_FAILED, UPDATE_BLOG_POST_REQUEST, UPDATE_BLOG_POST_RESET, UPDATE_BLOG_POST_SUCCESS } from "../constants/BlogPostConstants";
 import { UPDATE_IMAGE_SUCCESS } from "../constants/imageGelleryCartConstants";
 
 export const BlogCategoryReducer = (state = { category: [] }, action) => {
@@ -128,24 +129,24 @@ export const DeleteCategoryReducer = (state = {}, action) => {
 
 export const UpdateBlogCategoryReducer = (state = {}, action) => {
   switch (action.type) {
-    case UPDATE_CATEGORY_REQUEST:
+    case UPDATE_BLOG_POST_REQUEST:
       return {
         ...state,
         loading: true,
       };
-    case UPDATE_CATEGORY_SUCCESS:
+    case UPDATE_BLOG_POST_SUCCESS:
       return {
         ...state,
         loading: false,
         isUpdate: true,
       };
-    case UPDATE_CATEGORY_FAILED:
+    case UPDATE_BLOG_POST_FAILED:
       return {
         ...state,
         loading: false,
         error: action.payload,
       };
-    case UPDATE_CATEGORY_RESET:
+    case UPDATE_BLOG_POST_RESET:
       return {
         ...state,
         loading: false,

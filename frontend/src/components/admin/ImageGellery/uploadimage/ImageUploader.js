@@ -15,13 +15,19 @@ const ImageUploader = () => {
                   <div className="admin-img-title">
                     <div className="gallery-header">
                       <div className="page-title-action">
-                        <p>
-                          <NavLink to={"/admin/upload/library"}>
-                            Library
-                          </NavLink>
-                        </p>
+                        <div className="all-post-heading">
+                          <h1>
+                            Upload Image
+                            <span>
+                              <NavLink to={"/admin/upload/library"}>
+                                Open Image Gallery
+                              </NavLink>
+                            </span>
+                          </h1>
+                        </div>
                       </div>
                     </div>
+                    <br></br>
                     <ImageUploaderForm />
                   </div>
                 </div>

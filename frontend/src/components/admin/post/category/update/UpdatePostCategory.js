@@ -16,15 +16,17 @@ import { UPDATE_CATEGORY_RESET } from "../../../../../constants/BlogCategoryCons
 
 const UpdatePostCategory = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  const navigate = useNavigate();   
   const alert = useAlert();
   const { id } = useParams();
-  const { isUpdate, error: updateError } = useSelector(
+  const {loading:updateLoading, isUpdate, error: updateError } = useSelector(
     (state) => state.adminUpdateBlogCategory
   );
+
   const { loading, blogcat, error } = useSelector(
     (state) => state.singleblogcategory
   );
+  
   const [inputValue, setInputValue] = useState({
     name: "",
     slug: "",
@@ -53,18 +55,18 @@ const UpdatePostCategory = () => {
     }
     const { name, slug, title, description } = inputValue;
     const { seotitle, keyword, metadec, metalink } = seoInputValue;
-    if (
-      // selectedCategoryId.trim() === "" ||
-      title.trim() === "" ||
-      description.trim() === "" ||
-      slug.trim() === "" ||
-      seotitle.trim() === "" ||
-    //   keyword.trim() === "" ||
-      metadec.trim() === ""
-      // metalink.trim() === ""
-    ) {
-      return alert.error("Please fill out all required fields.");
-    }
+    // if (
+    //   // selectedCategoryId.trim() === "" ||
+    //   title.trim() === "" ||
+    //   description.trim() === "" ||
+    //   slug.trim() === "" ||
+    //   seotitle.trim() === "" ||
+    // //   keyword.trim() === "" ||
+    //   metadec.trim() === ""
+    //   // metalink.trim() === ""
+    // ) {
+    //   return alert.error("Please fill out all required fields.");
+    // }
 
     dispatch(
       UpdateBlogCategory(
